@@ -1,0 +1,210 @@
+fileFormatVersion: 2
+guid: dd16436aac3adce47b1e0d957e34964f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4827681930635313287
+    second: running-and-jumping-boy-sprite-sheets-game-assets-game-kits_0
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: running-and-jumping-boy-sprite-sheets-game-assets-game-kits_0
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 254
+        width: 216
+        height: 341
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -85, y: 46.5}
+        - {x: -95, y: 59.5}
+        - {x: -96, y: 73.5}
+        - {x: -101, y: 78.5}
+        - {x: -106, y: 86.5}
+        - {x: -105, y: 98.5}
+        - {x: -103, y: 100.5}
+        - {x: -108, y: 109.5}
+        - {x: -105, y: 121.5}
+        - {x: -96, y: 132.5}
+        - {x: -94, y: 140.5}
+        - {x: -87, y: 148.5}
+        - {x: -76, y: 151.5}
+        - {x: -67, y: 160.5}
+        - {x: -56, y: 161.5}
+        - {x: -49, y: 159.5}
+        - {x: -41, y: 164.5}
+        - {x: -33, y: 165.5}
+        - {x: -22, y: 169.5}
+        - {x: -8, y: 165.5}
+        - {x: 6, y: 170.5}
+        - {x: 17, y: 170.5}
+        - {x: 22, y: 167.5}
+        - {x: 34, y: 170.5}
+        - {x: 44, y: 168.5}
+        - {x: 56, y: 165.5}
+        - {x: 69, y: 164.5}
+        - {x: 80, y: 157.5}
+        - {x: 85, y: 149.5}
+        - {x: 95, y: 144.5}
+        - {x: 100, y: 135.5}
+        - {x: 101, y: 122.5}
+        - {x: 104, y: 116.5}
+        - {x: 106, y: 108.5}
+        - {x: 105, y: 100.5}
+        - {x: 108, y: 94.5}
+        - {x: 108, y: 85.5}
+        - {x: 103, y: 78.5}
+        - {x: 99.673645, y: 73.97397}
+        - {x: 99, y: 68.5}
+        - {x: 97, y: 64.5}
+        - {x: 94, y: 60.5}
+        - {x: 89, y: 57.5}
+        - {x: 89, y: 1.5}
+        - {x: 82, y: -19.5}
+        - {x: 72, y: -32.5}
+        - {x: 54, y: -45.5}
+        - {x: 32, y: -52.5}
+        - {x: 54, y: -77.5}
+        - {x: 71, y: -88.5}
+        - {x: 87, y: -98.5}
+        - {x: 94, y: -108.5}
+        - {x: 97, y: -118.5}
+        - {x: 91, y: -129.5}
+        - {x: 85, y: -137.5}
+        - {x: 76, y: -144.5}
+        - {x: 80, y: -154.5}
+        - {x: 80, y: -164.5}
+        - {x: 78, y: -170.5}
+        - {x: 5, y: -170.5}
+        - {x: 4, y: -150.5}
+        - {x: -5, y: -150.5}
+        - {x: -6, y: -170.5}
+        - {x: -80, y: -170.5}
+        - {x: -82, y: -159.5}
+        - {x: -80, y: -150.5}
+        - {x: -76, y: -141.5}
+        - {x: -86, y: -140.5}
+        - {x: -98, y: -132.5}
+        - {x: -104, y: -125.5}
+        - {x: -108, y: -118.5}
+        - {x: -107, y: -108.5}
+        - {x: -102, y: -96.5}
+        - {x: -94, y: -86.5}
+        - {x: -80, y: -77.5}
+        - {x: -64, y: -61.5}
+        - {x: -42, y: -48.5}
+        - {x: -51, y: -45.5}
+        - {x: -64, y: -35.5}
+        - {x: -74, y: -23.5}
+        - {x: -81, y: -9.5}
+        - {x: -85, y: 8.5}
+        - {x: -85, y: 35.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5231907f79897094ea02f52a10c4cdef
+      internalID: 4827681930635313287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
