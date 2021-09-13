@@ -113,7 +113,8 @@ public class NewInputPlayerControl : MonoBehaviour
 
     private void Melee(InputAction.CallbackContext context)
     {
-        animator.SetBool("isAttacking", true);
+        animator.SetTrigger("Attack");
+        // animator.SetBool("isAttacking", true);
 
 
         // Sets the pivot point of the ray to be at the front of the player character
@@ -129,6 +130,7 @@ public class NewInputPlayerControl : MonoBehaviour
         {
             Hit(hit);
         }
+        // animator.SetBool("isAttacking", false);
     }
 
     private void Move(InputAction.CallbackContext context)
