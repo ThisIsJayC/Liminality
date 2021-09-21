@@ -8,13 +8,20 @@ public class NewInputPlayerControl : MonoBehaviour
 {
     private InputActions inputActions;
     private InputAction movement, aiming;
+    public Vector3 playerPosition;
+    private Camera cam;
+    private Rigidbody2D rb;
 
     //Adjustable settings
     public float moveSpeed = 50f, maxSpeed = 5f, fallMultiplier = 2.5f, meleeReach = 1f, jumpForce = 7f, shotLength = 5.0f;
     public bool airborne;
     public Animator animator; //TODO: Implement an animator
 
-    private Rigidbody2D rb;
+    //Various mouse positions
+    public Vector2 mousePos = new Vector2(); //Mouse position on the actual screen
+    public Vector3 mouseWorld = new Vector3(); //Mouse position in relation to the game
+    public Vector3 mouseToPlayer = new Vector3(); //Mouse position in relation to the player sprite
+
     //private SpriteRenderer spriteRenderer;
 
     //Movement variables
@@ -72,6 +79,26 @@ public class NewInputPlayerControl : MonoBehaviour
     {
         movement.Disable();
         inputActions.Player.Jump.Disable();
+    }
+
+    //Read the mouse position and display some GUI info
+    void OnGUI()
+    {
+        Event currentEvent = Event.current;
+        // Get the mouse position from Event.
+        // Y position from Event is inverted.
+        mousePos.x = currentEvent.mousePosition.x;
+        mousePos.y = cam.pixelHeight - currentEvent.mousePosition.y;
+
+        mouseWorld = cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, cam.nearClipPlane));
+        mouseToPlayer = mouseWorld - playerPosition;
+
+        GUILayout.BeginArea(new Rect(20, 20, 250, 120));
+        GUILayout.Label("Screen pixels: " + cam.pixelWidth + ":" + cam.pixelHeight);
+        GUILayout.Label("Mouse position: " + mousePos);
+        GUILayout.Label("World position: " + mouseWorld.ToString("F3"));
+        GUILayout.Label("Player position: " + playerPosition);
+        GUILayout.EndArea();
     }
 
     private void Aim(InputAction.CallbackContext context)
@@ -160,6 +187,7 @@ public class NewInputPlayerControl : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         hpAmountPlayer = 5; //Currently not used TODO: Update enemy to attack and make player take damage
         hpAmountEnemy = 5;
+        cam = Camera.main;
     }
 
     private void FixedUpdate()
@@ -186,7 +214,9 @@ public class NewInputPlayerControl : MonoBehaviour
     //Update is called once per frame
     void Update()
     {
-    //Aiming. TODO: Polish this mechanic some more
+        //Find where the players sprite is
+        playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+        //Aiming. TODO: Polish this mechanic some more
         //Magnitude is required to adjust the length of the aiming line
         float magnitude = ((aiming.ReadValue<Vector2>().y)*(aiming.ReadValue<Vector2>().y) + (aiming.ReadValue<Vector2>().x)*(aiming.ReadValue<Vector2>().x));
         // Sets the pivot point of the ray to be at the front of the player character
@@ -195,16 +225,17 @@ public class NewInputPlayerControl : MonoBehaviour
         //Draws a line with the right analong stick based on the direction and magnitude. The further the stick us tilted, the further the line will draw
         //Only visible in the Scene view //TODO: Draw aiming line in game view.
         Debug.DrawRay(transform.position + pivotPoint, transform.TransformDirection(aiming.ReadValue<Vector2>().x, aiming.ReadValue<Vector2>().y, 0) * shotLength * magnitude, Color.red, 0.1f);
+        Debug.DrawRay(transform.position + pivotPoint, mouseToPlayer * shotLength * magnitude, Color.green, 0.1f);
 
 
-    //Melee Attack
+        //Melee Attack
         // if (Input.GetButtonDown("Fire1")) //TODO: Implement an attack
         // {
         //     //animator.SetTrigger("attack"); //TODO: Implement an animator
         //     Debug.Log("Fire1 was pressed");
         // }
 
-    //Player Death
+        //Player Death
         if (hpAmountPlayer <= 0) //TODO: Implement enemy attacks to hurt the player
         {
             Debug.Log("Player was killed");
@@ -222,6 +253,8 @@ public class NewInputPlayerControl : MonoBehaviour
 
     //Update animator
     //animator.SetFloat("currentSpeed", Mathf.Abs(Input.GetAxisRaw("Horizontal"))); //TODO: Implement an animator
+
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
