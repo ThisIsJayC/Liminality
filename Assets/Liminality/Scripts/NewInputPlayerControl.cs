@@ -13,7 +13,7 @@ public class NewInputPlayerControl : MonoBehaviour
     private Rigidbody2D rb;
 
     //Adjustable settings
-    public float moveSpeed = 50f, maxSpeed = 5f, fallMultiplier = 2.5f, meleeReach = 1f, jumpForce = 7f, shotLength = 5.0f;
+    public float moveSpeed = 10f, maxSpeed = 10f, fallMultiplier = 2.5f, meleeReach = 1f, jumpForce = 7f, shotLength = 5.0f;
     public bool airborne;
     public Animator animator; //TODO: Implement an animator
 
@@ -25,7 +25,7 @@ public class NewInputPlayerControl : MonoBehaviour
     //private SpriteRenderer spriteRenderer;
 
     //Movement variables
-    //private Vector2 move, moveVelocity, jumpVelocity; //Not usded in current iteration
+    //private Vector2 move, moveVelocity, jumpVelocity; //Not used in current iteration
     public static Vector3 direction;
 
     //Player Stats
@@ -214,6 +214,18 @@ public class NewInputPlayerControl : MonoBehaviour
     //Update is called once per frame
     void Update()
     {
+        /*
+        TODO: Fix implementation. This is a dodgey way to get the speed of the player character
+        to update every frame to allow smooth state transitions for the animator. Without this
+        line being in the Update() function, the speed is only updated if ANY other key is
+        pressed.
+
+        But maybe this is the right way to do this after all? I found this line of code from the
+        last version of the game:
+        //animator.SetFloat("currentSpeed", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
+        */
+        animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+
         //Find where the players sprite is
         playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
         //Aiming. TODO: Polish this mechanic some more
@@ -263,12 +275,13 @@ public class NewInputPlayerControl : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             airborne = false;
-            rb.velocity = Vector2.zero;
-            animator.SetBool("isJumping", false); //TODO: Implement an animator
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+            animator.SetBool("isJumping", false);
         }
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log("Ran into enemy " + collision.collider.name);
             if(hpAmountEnemy > 0)
             {
                 hpAmountEnemy -= 1;
