@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using System;
+
 public class NewInputPlayerControl : MonoBehaviour
 {
     private InputActions inputActions;
@@ -141,8 +142,6 @@ public class NewInputPlayerControl : MonoBehaviour
     private void Melee(InputAction.CallbackContext context)
     {
         animator.SetTrigger("Attack");
-        // animator.SetBool("isAttacking", true);
-
 
         // Sets the pivot point of the ray to be at the front of the player character
         Vector3 pivotPoint = Vector3.Scale(new Vector3(0.4f, 0.1f, 0), direction);
@@ -155,9 +154,8 @@ public class NewInputPlayerControl : MonoBehaviour
         //Checks if the raycast hits anything
         if(hit)
         {
-            Hit(hit);
+            Hit(hit); //TODO: Pass object reference and damage amount as parameters to a damage function
         }
-        // animator.SetBool("isAttacking", false);
     }
 
     private void Move(InputAction.CallbackContext context)
@@ -239,14 +237,6 @@ public class NewInputPlayerControl : MonoBehaviour
         Debug.DrawRay(transform.position + pivotPoint, transform.TransformDirection(aiming.ReadValue<Vector2>().x, aiming.ReadValue<Vector2>().y, 0) * shotLength * magnitude, Color.red, 0.1f);
         Debug.DrawRay(transform.position + pivotPoint, mouseToPlayer * shotLength * magnitude, Color.green, 0.1f);
 
-
-        //Melee Attack
-        // if (Input.GetButtonDown("Fire1")) //TODO: Implement an attack
-        // {
-        //     //animator.SetTrigger("attack"); //TODO: Implement an animator
-        //     Debug.Log("Fire1 was pressed");
-        // }
-
         //Player Death
         if (hpAmountPlayer <= 0) //TODO: Implement enemy attacks to hurt the player
         {
@@ -259,14 +249,9 @@ public class NewInputPlayerControl : MonoBehaviour
         {
             enemyIsDead = true;
             Debug.Log("Enemy was killed");
-            //animator.SetBool("enemyDeath", true); //TODO: Implement an animator
-            Destroy(GameObject.Find("Enemy"), 1f); //Destroys the contextect after 1 second
+            //animator.SetBool("enemyDeath", true); //TODO: Implement a death animation
+            Destroy(GameObject.Find("Enemy"), 1f); //Destroys the object after 1 second
         }
-
-    //Update animator
-    //animator.SetFloat("currentSpeed", Mathf.Abs(Input.GetAxisRaw("Horizontal"))); //TODO: Implement an animator
-
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
