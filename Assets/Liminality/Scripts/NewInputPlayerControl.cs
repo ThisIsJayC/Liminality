@@ -14,7 +14,7 @@ public class NewInputPlayerControl : MonoBehaviour
     private Rigidbody2D rb;
 
     //Adjustable settings
-    public float moveSpeed = 10f, maxSpeed = 10f, fallMultiplier = 2.5f, meleeReach = 1f, jumpForce = 7f, shotLength = 5.0f;
+    public float moveSpeed = 10f, maxSpeed = 10f, fallMultiplier = 2.5f, meleeReach = 1.78f, jumpForce = 7f, shotLength = 5.0f;
     public bool airborne;
     public Animator animator; //TODO: Implement an animator
 
@@ -145,7 +145,7 @@ public class NewInputPlayerControl : MonoBehaviour
 
         // Sets the pivot point of the ray to be at the front of the player character
         Vector3 pivotPoint = Vector3.Scale(new Vector3(0.4f, 0.1f, 0), direction);
-        Debug.DrawRay(transform.position + pivotPoint, Vector2.right, Color.red, 0.1f);
+        Debug.DrawRay(transform.position + pivotPoint, meleeReach * (Vector2.right), Color.red, 0.3f);
 
         //This is the actual collision line. The hit variable is storing the object that the raycast collides with
         RaycastHit2D hit = Physics2D.Raycast(transform.position + pivotPoint, Vector2.right, meleeReach);
