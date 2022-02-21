@@ -14,7 +14,7 @@ public class NewInputPlayerControl : MonoBehaviour
     private Rigidbody2D rb;
 
     //Adjustable settings
-    public float moveSpeed = 10f, maxSpeed = 10f, fallMultiplier = 2.5f, meleeReach = 1.78f, jumpForce = 7f, shotLength = 5.0f;
+    public float moveSpeed = 10f, maxSpeed = 10f, fallMultiplier = 2.5f, meleeReach = 2.2f, jumpForce = 7f, shotLength = 5.0f;
     public bool airborne;
     public Animator animator; //TODO: Implement an animator
 
